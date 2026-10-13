@@ -1,0 +1,155 @@
+/* WCD — Waqt Cut Daalo | Styles */
+
+:root {
+  --bg: #14101f;
+  --card: #1e1830;
+  --card2: #262040;
+  --text: #f4f1ff;
+  --muted: #a79fc4;
+  --grad: linear-gradient(135deg, #ff7a1a, #ff4d6d 45%, #7b2ff7);
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+/* ---------- header ---------- */
+header {
+  display: flex; align-items: center; gap: 12px;
+  padding: 16px 20px;
+  position: sticky; top: 0; z-index: 10;
+  background: rgba(20, 16, 31, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #2c2447;
+}
+header img { width: 44px; height: 44px; border-radius: 12px; }
+header .brand h1 { font-size: 22px; letter-spacing: 1px; }
+header .brand p { font-size: 12px; color: var(--muted); }
+header .spacer { flex: 1; }
+.streak-pill {
+  background: var(--card2); border: 1px solid #3a2f5e;
+  padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: 14px;
+}
+
+/* ---------- layout ---------- */
+main { max-width: 640px; margin: 0 auto; padding: 0 16px; }
+section { margin-top: 22px; }
+
+.hero { text-align: center; padding: 26px 10px 6px; }
+.hero img { width: 110px; height: 110px; border-radius: 28px; box-shadow: 0 12px 40px rgba(255, 122, 26, 0.35); }
+.hero h2 { font-size: 30px; margin: 14px 0 6px; }
+.hero h2 .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero p { color: var(--muted); font-size: 15px; }
+
+/* ---------- stats ---------- */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.stat {
+  background: var(--card); border-radius: var(--radius);
+  padding: 12px 6px; text-align: center; border: 1px solid #2c2447;
+}
+.stat b { display: block; font-size: 16px; }
+.stat span { font-size: 11px; color: var(--muted); }
+.xp-bar { margin-top: 12px; background: var(--card); border-radius: 999px; height: 26px; position: relative; overflow: hidden; border: 1px solid #2c2447; }
+#xp-fill { height: 100%; background: var(--grad); width: 0%; transition: width 0.6s ease; border-radius: 999px; }
+#xp-text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; }
+
+/* ---------- controls ---------- */
+.controls .label { font-size: 13px; color: var(--muted); margin: 14px 0 8px; font-weight: 600; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  border: 1.5px solid var(--chip, #7b2ff7); background: transparent; color: var(--text);
+  padding: 8px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer;
+  transition: all 0.15s ease;
+}
+.chip.active { background: var(--chip, #7b2ff7); color: #14101f; }
+
+.big-btn {
+  width: 100%; margin-top: 20px; padding: 18px;
+  font-size: 20px; font-weight: 800; color: #fff;
+  background: var(--grad); border: none; border-radius: var(--radius); cursor: pointer;
+  box-shadow: 0 10px 30px rgba(255, 77, 109, 0.35);
+  transition: transform 0.12s ease;
+}
+.big-btn:active { transform: scale(0.97); }
+
+/* ---------- task card ---------- */
+.task-card {
+  background: var(--card); border: 1px solid #3a2f5e; border-radius: 22px;
+  padding: 22px; margin-top: 22px; position: relative; overflow: hidden;
+}
+.task-card::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 5px; background: var(--grad);
+}
+.task-card.hidden { display: none; }
+.task-top { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+#task-cat { font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 999px; color: #14101f; }
+#task-time { margin-left: auto; font-size: 13px; color: var(--muted); font-weight: 600; }
+#task-text { font-size: 19px; line-height: 1.5; font-weight: 600; }
+
+.timer-wrap { display: flex; align-items: center; gap: 14px; margin: 18px 0; }
+#timer-ring {
+  width: 86px; height: 86px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: conic-gradient(#ff7a1a var(--p, 0%), #2c2447 var(--p, 0%));
+}
+#timer-ring::after { content: ""; position: absolute; }
+#timer {
+  width: 70px; height: 70px; border-radius: 50%; background: var(--card);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 800;
+}
+.timer-btns { display: flex; gap: 8px; }
+.timer-btns button {
+  background: var(--card2); color: var(--text); border: 1px solid #3a2f5e;
+  padding: 10px 16px; border-radius: 12px; font-weight: 700; cursor: pointer; font-size: 14px;
+}
+.task-actions { display: flex; gap: 10px; }
+.task-actions button { flex: 1; padding: 14px; border-radius: 14px; font-size: 16px; font-weight: 800; cursor: pointer; border: none; }
+#done-btn { background: #3ddc84; color: #0d2818; }
+#new-btn { background: var(--card2); color: var(--text); border: 1px solid #3a2f5e; }
+
+/* ---------- history ---------- */
+.history h3 { font-size: 17px; margin-bottom: 10px; }
+#history-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+#history-list li {
+  background: var(--card); border: 1px solid #2c2447; border-radius: 14px;
+  padding: 12px; display: flex; gap: 10px; align-items: center; font-size: 13px;
+}
+#history-list li.empty { justify-content: center; color: var(--muted); }
+.h-cat { font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px; color: #14101f; white-space: nowrap; }
+.h-text { flex: 1; color: var(--muted); }
+.h-xp { font-weight: 800; color: #3ddc84; }
+
+/* ---------- footer / toast / confetti ---------- */
+footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 34px; }
+footer b { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+#toast {
+  position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%) translateY(80px);
+  background: var(--grad); color: #fff; font-weight: 700; font-size: 14px;
+  padding: 14px 22px; border-radius: 999px; opacity: 0; transition: all 0.3s ease;
+  z-index: 50; max-width: 90vw; text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+#confetti { position: fixed; inset: 0; pointer-events: none; z-index: 40; overflow: hidden; }
+.piece {
+  position: absolute; top: -20px; width: 10px; height: 14px; border-radius: 3px;
+  animation: fall linear forwards;
+}
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(720deg); opacity: 0.6; }
+}
+
+@media (max-width: 420px) {
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .hero h2 { font-size: 24px; }
+}
