@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WCD — Waqt Cut Daalo</title>
+  <meta name="description" content="WCD (Waqt Cut Daalo) — bore ho rahe ho? Ek task uthao, time kat jayega! Fun tasks, timer, XP aur streaks.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <img src="assets/logo.png" alt="WCD logo">
+  <div class="brand">
+    <h1>WCD</h1>
+    <p>Waqt Cut Daalo</p>
+  </div>
+  <div class="spacer"></div>
+  <div class="streak-pill" id="stat-streak">🔥 0 din</div>
+</header>
+
+<main>
+  <section class="hero">
+    <img src="assets/logo.png" alt="WCD — Waqt Cut Daalo">
+    <h2>Bore ho rahe ho? <span class="grad">Waqt Cut Daalo!</span></h2>
+    <p>Ek button dabao, ek fun task pao — 5 minute me boredom gayab. 😎</p>
+  </section>
+
+  <section class="stats">
+    <div class="stat"><b id="stat-xp">0 XP</b><span>Points</span></div>
+    <div class="stat"><b id="stat-level">Level 1</b><span>Level</span></div>
+    <div class="stat"><b id="stat-total">0 tasks</b><span>Poore kiye</span></div>
+    <div class="stat"><b>🏆</b><span id="xp-text-mini">Champion</span></div>
+    <div class="xp-bar" style="grid-column: 1 / -1;">
+      <div id="xp-fill"></div>
+      <span id="xp-text">0 / 100 XP agle level tak</span>
+    </div>
+  </section>
+
+  <section class="controls">
+    <p class="label">Category chuno</p>
+    <div class="chips" id="cat-chips"></div>
+    <p class="label">Kitna time hai?</p>
+    <div class="chips" id="time-chips"></div>
+    <button class="big-btn" id="big-btn">🎲 Mujhe Task Do!</button>
+  </section>
+
+  <section class="task-card hidden" id="task-card">
+    <div class="task-top">
+      <span id="task-cat">😜 Masti</span>
+      <span id="task-time">⏱ 5 minute</span>
+    </div>
+    <p id="task-text"></p>
+    <div class="timer-wrap">
+      <div id="timer-ring"><div id="timer">05:00</div></div>
+      <div class="timer-btns">
+        <button id="timer-btn">▶ Start</button>
+        <button id="timer-reset">↺ Reset</button>
+      </div>
+    </div>
+    <div class="task-actions">
+      <button id="done-btn">✅ Ho Gaya!</button>
+      <button id="new-btn">🔄 Naya Task</button>
+    </div>
+  </section>
+
+  <section class="history">
+    <h3>📜 Aaj tak ke kaarname</h3>
+    <ul id="history-list"></ul>
+  </section>
+</main>
+
+<footer>
+  Made with ❤️ by <b>WCD</b> — Waqt Cut Daalo • Bore logon ke liye, bore logon dwara 😜
+</footer>
+
+<div id="toast"></div>
+<div id="confetti"></div>
+
+<script src="tasks.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
